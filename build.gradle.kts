@@ -10,9 +10,8 @@ repositories {
 pkl {
     evaluators {
         register("evalPkl") {
-            sourceModules.add(file("module1.pkl"))
-            transitiveModules.from(file("module2.pkl"))
-            outputFile.set(layout.buildDirectory.file("module1.yaml"))
+            sourceModules.add(file("src/sample.pkl"))
+            outputFile.set(layout.buildDirectory.file("sample.yaml"))
             outputFormat.set("yaml")
         }
     }
