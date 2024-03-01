@@ -1,2 +1,2 @@
-rootProject.name = "pkl-plugin-gradle-usage"
+rootProject.name = "pkl-gradle-reproducer"
 

@@ -1,19 +1,19 @@
 plugins {
     id("java")
+    id("org.pkl-lang") version "0.25.2"
 }
-
-group = "fr.gplassard"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-}
-
-tasks.test {
-    useJUnitPlatform()
+pkl {
+    evaluators {
+        register("evalPkl") {
+            sourceModules.add(file("module1.pkl"))
+            transitiveModules.from(file("module2.pkl"))
+            outputFile.set(layout.buildDirectory.file("module1.yaml"))
+            outputFormat.set("yaml")
+        }
+    }
 }
